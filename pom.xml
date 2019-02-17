@@ -153,6 +153,9 @@
               <tag>${project.version}</tag>
             </tags>
           </to>
+          <container>
+            <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
+          </container>
         </configuration>
         <executions>
           <execution>
