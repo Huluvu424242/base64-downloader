@@ -14,7 +14,7 @@
   <groupId>com.github.funthomas424242</groupId>
   <artifactId>base64-downloader</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>base64-downloader</name>
   <url>http://maven.apache.org</url>
 
@@ -148,8 +148,21 @@
         <configuration>
           <to>
             <image>registry.hub.docker.com/funthomas424242/${project.artifactId}</image>
+            <tags>
+              <tag>latest</tag>
+              <tag>${project.version}</tag>
+            </tags>
           </to>
         </configuration>
+        <executions>
+          <execution>
+            <id>package</id>
+            <phase>install</phase>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
