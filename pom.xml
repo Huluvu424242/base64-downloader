@@ -140,29 +140,77 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <!--<configuration>-->
+          <!--<layout>DIR</layout>-->
+        <!--</configuration>-->
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <id>unpack</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>${project.artifactId}</artifactId>
+                  <version>${project.version}</version>
+                  <type>jar</type>
+                  <!--<classifier> [classifier - optional] </classifier>-->
+                  <!--<overWrite>[ true or false ]</overWrite>-->
+                  <outputDirectory>src/main/jib/app/classes</outputDirectory>
+                  <!--<destFileName>[ filename ]</destFileName>-->
+                </artifactItem>
+              </artifactItems>
+              <!-- other configurations here -->
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <!--<version>0.9.7</version>-->
+        <version>0.10.0</version>
+        <!--<version>1.0.0</version>-->
         <configuration>
           <to>
             <image>registry.hub.docker.com/funthomas424242/${project.artifactId}</image>
-            <tags>
-              <tag>latest</tag>
-              <tag>${project.version}</tag>
-            </tags>
+            <!--<tags>-->
+              <!--<tag>latest</tag>-->
+              <!--<tag>${project.version}</tag>-->
+            <!--</tags>-->
           </to>
           <container>
-            <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
+            <jvmFlags>
+              <jvmFlag>-Xms512m</jvmFlag>
+              <jvmFlag>-Xdebug</jvmFlag>
+              <jvmFlag>-Xmy:flag=jib-rules</jvmFlag>
+            </jvmFlags>
+            <!--<mainClass>org.springframework.boot.loader.JarLauncher</mainClass>-->
+            <!--<entrypoint>sh</entrypoint>-->
+            <!--<format>OCI</format>-->
           </container>
         </configuration>
         <executions>
           <execution>
-            <id>package</id>
+            <id>install</id>
             <phase>install</phase>
             <goals>
               <goal>build</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>package</id>
+            <phase>package</phase>
+            <goals>
+              <goal>exportDockerContext</goal>
             </goals>
           </execution>
         </executions>
