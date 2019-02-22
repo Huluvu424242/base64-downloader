@@ -178,26 +178,20 @@
         <artifactId>jib-maven-plugin</artifactId>
         <version>1.0.0</version>
         <configuration>
-          <!--<from>-->
-            <!--<image>ubuntu</image>-->
-          <!--</from>-->
-          <to>
-            <!--<image>registry.hub.docker.com/funthomas424242/${project.artifactId}</image>-->
-            <image>myimage</image>
-            <tags>
-              <tag>latest</tag>
-              <tag>${project.version}</tag>
-            </tags>
-          </to>
           <container>
             <jvmFlags>
               <jvmFlag>-Xms512m</jvmFlag>
               <jvmFlag>-Xdebug</jvmFlag>
               <!--<jvmFlag>-Xmy:flag=jib-rules</jvmFlag>-->
             </jvmFlags>
+            <ports>
+              <port>8080</port>
+              <!--<port>8000</port>-->
+              <!--<port>4200</port>-->
+            </ports>
              <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
             <!--<entrypoint>top,-b</entrypoint>-->
-            <!--<format>OCI</format>-->
+            <format>OCI</format>
           </container>
         </configuration>
         <executions>
@@ -207,6 +201,15 @@
             <goals>
               <goal>build</goal>
             </goals>
+            <configuration>
+              <to>
+                <image>registry.hub.docker.com/funthomas424242/${project.artifactId}</image>
+                <tags>
+                  <tag>latest</tag>
+                  <tag>${project.version}</tag>
+                </tags>
+              </to>
+            </configuration>
           </execution>
           <execution>
             <id>package</id>
@@ -214,6 +217,18 @@
             <goals>
               <goal>dockerBuild</goal>
             </goals>
+            <configuration>
+              <!--<from>-->
+              <!--<image>ubuntu</image>-->
+              <!--</from>-->
+              <to>
+                <image>myimage</image>
+                <tags>
+                  <tag>latest</tag>
+                  <tag>${project.version}</tag>
+                </tags>
+              </to>
+            </configuration>
           </execution>
         </executions>
       </plugin>

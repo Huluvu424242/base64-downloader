@@ -2,6 +2,14 @@
 Ein REST Service welcher übergebene URLs versucht zu laden, base64 zu chiffrieren und dann als Textdatei zum Download anbietet. 
 
 
+
+# Ausprobieren
+
+* sudo dockerd&
+* mvn clean package
+* docker run -P8080:8080 myimage
+
+
 # Quellen im Neuland
 
 * https://www.heise.de/ct/artikel/Docker-einrichten-unter-Linux-Windows-macOS-4309355.html
