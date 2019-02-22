@@ -5,6 +5,12 @@ Ein REST Service welcher übergebene URLs versucht zu laden, base64 zu chiffrier
 
 # Ausprobieren
 
+## als Endnutzer
+
+* docker run -p8080:8080 funthomas424242/base64-downloader
+
+## als Entwickler
+
 * sudo dockerd&
 * mvn clean package
 * docker run -P8080:8080 myimage
