@@ -203,7 +203,6 @@
             </ports>
              <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
             <!--<entrypoint>top,-b</entrypoint>-->
-            <format>OCI</format>
           </container>
         </configuration>
         <executions>
@@ -240,6 +239,9 @@
                   <tag>${project.version}</tag>
                 </tags>
               </to>
+              <container>
+                <format>OCI</format>
+              </container>
             </configuration>
           </execution>
         </executions>
