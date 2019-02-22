@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
 
@@ -17,7 +17,6 @@
   <version>1.0.0-SNAPSHOT</version>
   <name>base64-downloader</name>
   <url>http://maven.apache.org</url>
-
 
 
   <properties>
@@ -69,7 +68,7 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.25</version>
+      <version>1.7.26</version>
       <scope>compile</scope>
     </dependency>
 
@@ -181,7 +180,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <!--<configuration>-->
-          <!--<layout>DIR</layout>-->
+        <!--<layout>DIR</layout>-->
         <!--</configuration>-->
       </plugin>
       <plugin>
@@ -216,7 +215,7 @@
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <configuration>
           <container>
             <jvmFlags>
@@ -229,7 +228,7 @@
               <!--<port>8000</port>-->
               <!--<port>4200</port>-->
             </ports>
-             <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
+            <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
             <!--<entrypoint>top,-b</entrypoint>-->
           </container>
         </configuration>
@@ -275,6 +274,14 @@
         </executions>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <organization>
@@ -288,7 +295,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.9</version>
         <reportSets>
           <reportSet>
             <configuration>
