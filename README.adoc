@@ -15,6 +15,9 @@ Ein REST Service welcher übergebene URLs versucht zu laden, base64 zu chiffrier
 * mvn clean package
 * docker run -P8080:8080 myimage
 
+Analyse über
+* docker exec -it <containerId> sh
+
 
 # Quellen im Neuland
 
