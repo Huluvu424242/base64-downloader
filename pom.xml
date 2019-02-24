@@ -33,25 +33,20 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>com.google.dagger</groupId>
-        <artifactId>dagger</artifactId>
-        <version>2.21</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.dagger</groupId>
-        <artifactId>dagger-compiler</artifactId>
-        <version>2.21</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>27.0.1-jre</version>
-      </dependency>
+        <!--<groupId>com.google.guava</groupId>-->
+        <!--<artifactId>guava</artifactId>-->
+        <!--<version>27.0.1-jre</version>-->
+      <!--</dependency>-->
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -71,13 +66,14 @@
       <version>1.7.26</version>
       <scope>compile</scope>
     </dependency>
-
-    <!-- DI für Java SE Umgebungen -->
+    <!-- Logging -->
     <dependency>
-      <groupId>com.google.dagger</groupId>
-      <artifactId>dagger</artifactId>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
       <scope>compile</scope>
     </dependency>
+
 
     <!-- Objektfunktionales Paradigma -->
     <dependency>
@@ -87,11 +83,11 @@
       <scope>compile</scope>
     </dependency>
 
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <scope>compile</scope>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.google.guava</groupId>-->
+      <!--<artifactId>guava</artifactId>-->
+      <!--<scope>compile</scope>-->
+    <!--</dependency>-->
 
 
     <!-- APIs von denen die Generate abhängen -->
@@ -120,15 +116,6 @@
       <groupId>com.tngtech.archunit</groupId>
       <artifactId>archunit-junit5-api</artifactId>
       <version>0.9.3</version>
-      <scope>test</scope>
-    </dependency>
-
-
-    <!-- Logging -->
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
       <scope>test</scope>
     </dependency>
 
