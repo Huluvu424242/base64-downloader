@@ -4,6 +4,7 @@ import com.github.funthomas424242.base64downloader.service.DownloadService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
@@ -20,8 +21,8 @@ public class Base64DownloadController {
         return "Der Service ist: "+downloadService;
     }
 
-    @GetMapping(path = "/getResource/{url}", produces= MediaType.TEXT_PLAIN_VALUE)
-    public String getResource(@PathVariable URL url){
+    @GetMapping(path = "/getResource", produces= MediaType.TEXT_PLAIN_VALUE)
+    public String getResource(@RequestParam String url){
 
 
         return "Der Download URL ist: "+url;
