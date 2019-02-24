@@ -22,3 +22,5 @@ Ein REST Service welcher übergebene URLs versucht zu laden, base64 zu chiffrier
 * https://labs.play-with-docker.com/
 * https://docs.docker.com/config/daemon/
 * https://github.com/GoogleContainerTools/distroless/blob/master/java/README.md
+* https://medium.com/github-all-stars/github-all-stars-4-googlecontainertools-jib-841196f759a3
+*
