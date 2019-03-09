@@ -16,22 +16,16 @@ public class Base64DownloadController {
     @Inject
     protected DownloadService downloadService;
 
-    @GetMapping("/getInfo")
-    public String getInfo(){
-        return "Der Service ist: "+downloadService;
-    }
+    @GetMapping(path = "/download.zip", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public ResponseEntity<byte[]> getResource(@RequestParam String url) throws IOException {
 
-    @GetMapping(path = "/getResource", produces= MediaType.TEXT_PLAIN_VALUE)
-    public String getResource(@RequestParam String url) throws IOException {
-//
-//        final ResponseEntity<byte[]> entity = downloadService.fetchFile(url);
-//        entity.getBody();
-//        return entity.getBody().toString();
         final ResponseEntity<byte[]> entity = downloadService.fetchFile(url);
         final byte[] content = entity.getBody();
-        final String text = new String(content);
-//        final String text = "Hallo Du da";
-        return text;
+        return ResponseEntity
+            .status(entity.getStatusCode())
+            .body(downloadService.convertBinary2Base64("download.base64", content));
 
     }
+
+
 }
